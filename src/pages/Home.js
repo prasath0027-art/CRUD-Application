@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 
 export default function Home() {
   const [users, setUsers] = useState([]);
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -22,51 +21,52 @@ export default function Home() {
   };
 
   return (
-    <div className="container">
-      <div className="py-4">
-        <table className="table border shadow">
-          <thead>
-            <tr>
-              <th scope="col">S.N</th>
-              <th scope="col">Name</th>
-              <th scope="col">Username</th>
-              <th scope="col">Email</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user, index) => (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center py-8">
+      <div className="w-full max-w-4xl bg-white rounded-xl shadow-lg p-8">
+        <h1 className="text-3xl font-bold text-blue-700 mb-6 text-center">User Management</h1>
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-white border rounded-lg shadow">
+            <thead className="bg-blue-100">
               <tr>
-                <th scope="row" key={index}>
-                  {index + 1}
-                </th>
-                <td>{user.name}</td>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-                <td>
-                  <Link
-                    className="btn btn-success mx-2"
-                    to={`/viewuser/${user.id}`}
-                  >
-                    View
-                  </Link>
-                  <Link
-                    className="btn btn-primary mx-2"
-                    to={`/edituser/${user.id}`}
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    className="btn btn-danger mx-2"
-                    onClick={() => deleteUser(user.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
+                <th className="px-4 py-2 text-left font-semibold text-gray-700">S.N</th>
+                <th className="px-4 py-2 text-left font-semibold text-gray-700">Name</th>
+                <th className="px-4 py-2 text-left font-semibold text-gray-700">Username</th>
+                <th className="px-4 py-2 text-left font-semibold text-gray-700">Email</th>
+                <th className="px-4 py-2 text-left font-semibold text-gray-700">Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {users.map((user, index) => (
+                <tr key={user.id} className="hover:bg-blue-50 transition">
+                  <td className="px-4 py-2 border-b">{index + 1}</td>
+                  <td className="px-4 py-2 border-b">{user.name}</td>
+                  <td className="px-4 py-2 border-b">{user.username}</td>
+                  <td className="px-4 py-2 border-b">{user.email}</td>
+                  <td className="px-4 py-2 border-b flex gap-2">
+                    <Link
+                      className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded shadow transition no-underline"
+                      to={`/viewuser/${user.id}`}
+                    >
+                      View
+                    </Link>
+                    <Link
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded shadow transition no-underline"
+                      to={`/edituser/${user.id}`}
+                    >
+                      Edit
+                    </Link>
+                    <button
+                      className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded shadow transition no-underline"
+                      onClick={() => deleteUser(user.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

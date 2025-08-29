@@ -24,59 +24,64 @@ export default function AddUser() {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Register User</h2>
-
-          <form onSubmit={(e) => onSubmit(e)}>
-            <div className="mb-3">
-              <label htmlFor="Name" className="form-label">
-                Name
-              </label>
-              <input
-                type={"text"}
-                className="form-control"
-                placeholder="Enter your name"
-                name="name"
-                value={name}
-                onChange={(e) => onInputChange(e)}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="Username" className="form-label">
-                Username
-              </label>
-              <input
-                type={"text"}
-                className="form-control"
-                placeholder="Enter your username"
-                name="username"
-                value={username}
-                onChange={(e) => onInputChange(e)}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="Email" className="form-label">
-                E-mail
-              </label>
-              <input
-                type={"text"}
-                className="form-control"
-                placeholder="Enter your e-mail address"
-                name="email"
-                value={email}
-                onChange={(e) => onInputChange(e)}
-              />
-            </div>
-            <button type="submit" className="btn btn-outline-primary">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Register User</h2>
+        <form onSubmit={onSubmit} className="space-y-5">
+          <div>
+            <label htmlFor="Name" className="block text-gray-700 font-semibold mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your name"
+              name="name"
+              value={name}
+              onChange={onInputChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="Username" className="block text-gray-700 font-semibold mb-2">
+              Username
+            </label>
+            <input
+              type="text"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your username"
+              name="username"
+              value={username}
+              onChange={onInputChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="Email" className="block text-gray-700 font-semibold mb-2">
+              E-mail
+            </label>
+            <input
+              type="text"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your e-mail address"
+              name="email"
+              value={email}
+              onChange={onInputChange}
+            />
+          </div>
+          <div className="flex justify-between mt-6">
+            <button
+              type="submit"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 no-underline"
+            >
               Submit
             </button>
-            <Link className="btn btn-outline-danger mx-2" to="/">
+            <Link
+              className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 no-underline"
+              to="/"
+            >
               Cancel
             </Link>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   );

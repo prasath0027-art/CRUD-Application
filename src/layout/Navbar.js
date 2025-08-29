@@ -1,30 +1,22 @@
-import React from 'react'
+import React from 'react';
 import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
-            CRUD Application
-            </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+    <nav className="bg-blue-700 shadow-lg">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <Link className="text-white text-2xl font-bold tracking-wide hover:text-blue-200 transition no-underline" to="/">
+          CRUD Application
+        </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            className="bg-white text-blue-700 font-semibold px-4 py-2 rounded-lg shadow hover:bg-blue-100 transition no-underline"
+            to="/adduser"
           >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <Link className="btn btn-outline-light" to="/adduser">
             Add User
           </Link>
         </div>
-      </nav>
-    </div>
-  )
+      </div>
+    </nav>
+  );
 }
