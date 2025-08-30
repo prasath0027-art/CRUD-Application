@@ -25,12 +25,12 @@ export default function EditUser() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`https://crud-backend-bqkd.onrender.com/user/${id}`, user);
+    await axios.put(`https://crud-backend-1-kcyl.onrender.com/user/${id}`, user);
     navigate("/");
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`https://crud-backend-bqkd.onrender.com/user/${id}`);
+    const result = await axios.get(`https://crud-backend-1-kcyl.onrender.com/user/${id}`);
     setUser(result.data);
   };
 

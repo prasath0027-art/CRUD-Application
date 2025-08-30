@@ -16,7 +16,7 @@ export default function ViewUser() {
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`https://crud-backend-bqkd.onrender.com/user/${id}`);
+    const result = await axios.get(`https://crud-backend-1-kcyl.onrender.com/user/${id}`);
     setUser(result.data);
   };
 
