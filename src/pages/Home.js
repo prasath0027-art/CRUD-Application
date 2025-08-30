@@ -11,12 +11,12 @@ export default function Home() {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("http://localhost:8080/users");
+    const result = await axios.get("https://crud-backend-bqkd.onrender.com/users");
     setUsers(result.data);
   };
 
   const deleteUser = async (id) => {
-    await axios.delete(`http://localhost:8080/user/${id}`);
+    await axios.delete(`https://crud-backend-bqkd.onrender.com/user/${id}`);
     loadUsers();
   };
 
